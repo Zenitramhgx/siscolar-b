@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 interface ApiResponse<T> {
   data?: T;
   meta?: Record<string, any>;

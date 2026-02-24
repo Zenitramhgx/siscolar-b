@@ -10,6 +10,7 @@ import { globalErrorHandler, AppError } from './middlewares/errorHandler';
 import fs from 'node:fs';
 import https from 'node:https';
 import { buildSuccessResponse, buildErrorResponse, buildPaginatedResponse } from './utils/responseBuilder';
+import { sanitizeInputMiddleware } from './middlewares/sanitizeInput';
 
 dotenv.config();
 
@@ -33,6 +34,7 @@ try {
 
 // 3. Middlewares Base
 app.use(express.json());
+app.use(sanitizeInputMiddleware);
 app.use(cors());
 
 // 4. Rutas de Documentación
